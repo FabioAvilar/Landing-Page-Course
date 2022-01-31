@@ -1,0 +1,121 @@
+.header {
+
+    
+// Hamburger Open Styles
+
+    &.open {
+
+        .header__toggle {            
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+
+            > span:nth-child(2) {
+                opacity: 0;
+                
+            }
+
+            > span:last-child {
+                transform: rotate(-45deg);
+            
+            }
+        }
+    }
+
+    &__logo {
+        img {
+            width: 8.8125rem;
+            height: 1.375rem;
+        }
+    }
+
+    &__toggle {//mobile toggle
+
+        > span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: $darkBLue;
+            transition: all 300ms ease-in-out;
+            transform-origin: 3px 1px;
+
+            &:not(:last-child){
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    &__menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 3rem);
+        background: $white;
+        margin-top: 1.5rem;
+        padding: 1.625rem;
+        border-radius: 5px;
+        
+
+        a {
+            display: block;
+            padding: 0.625rem;
+            color: $darkBLue;
+            text-align: center;
+        }
+    }
+
+    
+
+    &__links {
+        
+
+        a {
+            position: relative;
+            font-size: $font-sm;
+            color: $grayishBlue;
+            transition: color 300ms ease-in-out;
+
+            &:not(:last-child){
+                margin-right: 32px;
+            }
+
+            &::before{
+                content: "";
+                display: block;
+                position: absolute;
+                height: 5px;
+                left: 0;
+                right: 0;
+                bottom: -30px;
+                background: linear-gradient(to right,$limeGreen, $brightCyan);
+                opacity: 0;
+                transition: opacity 300ms ease-in-out;
+            }
+
+            &:hover {
+                color: $darkBLue;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-image: linear-gradient($darkBLue, transparent);
+}
+    
+nav {
+    position: relative;
+    background-color: $white;   
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+}
